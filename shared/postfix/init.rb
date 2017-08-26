@@ -114,4 +114,16 @@ RSpec.shared_examples "postfix" do
     it { should be_owned_by 'postfix' }
   end
 
+ describe process('bash /etc/supervisor/postfix_wrapper.sh') do
+   it { should be_running }
+ end
+
+ describe process('bash /usr/local/bin/logrotated.sh') do
+   it { should be_running }
+ end
+
+ describe process('saslauthd -d -a ldap -c -m /var/run/saslauthd -n 5') do
+   it { should be_running }
+ end
+
 end
