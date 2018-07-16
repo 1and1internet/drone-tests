@@ -76,8 +76,8 @@ RSpec.shared_examples "docker-ubuntu-16-apache-2.4" do
     its(:stderr) { should eq "" }
   end
 
-  describe command("grep \"1.2.3\" /var/log/apache2/*.log") do
-    its(:stdout) { should contain('1.2.3') }
+  describe command("grep \"1.2.3.???\" /var/log/apache2/*.log") do
+    its(:stdout) { should contain('1.2.3.???') }
     its(:stdout) { should contain('curl') }
     its(:stderr) { should eq "" }
   end
